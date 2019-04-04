@@ -7,13 +7,13 @@ import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
 @Data
-//@Table(SimpleTableConstants.TABLE_NAME)
-@Table("simpletable")
+
+@Table(SimpleTableConstants.TABLE_NAME)
 public class SimpleTable {
 
     @PrimaryKey
     @Column(SimpleTableConstants.Columns.ID)
-    private Integer id;
+    private String id;
 
     @Column(SimpleTableConstants.Columns.NAME)
     private String name;
