@@ -1,7 +1,7 @@
 package docker.com.example.dockerDemo.controller;
 
 import docker.com.example.dockerDemo.entity.SimpleTable;
-import docker.com.example.dockerDemo.service.Service;
+import docker.com.example.dockerDemo.service.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,7 +10,7 @@ import java.util.Optional;
 @RestController
 public class DemoController {
     @Autowired
-    Service service;
+    User service;
 
     @GetMapping(path = "/findAll")
     @ResponseBody

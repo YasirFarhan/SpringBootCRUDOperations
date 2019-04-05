@@ -1,12 +1,11 @@
 package docker.com.example.dockerDemo.service;
 
-import docker.com.example.dockerDemo.dao.Dao;
 import docker.com.example.dockerDemo.entity.SimpleTable;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Optional;
 
-public class ServiceSQL implements Service {
+public class ServiceSQL implements User {
     @Autowired
     Dao dao;
 

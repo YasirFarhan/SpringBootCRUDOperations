@@ -1,4 +1,4 @@
-package docker.com.example.dockerDemo.config;
+package docker.com.example.dockerDemo.factory;
 
 import org.springframework.context.annotation.Condition;
 import org.springframework.context.annotation.ConditionContext;
