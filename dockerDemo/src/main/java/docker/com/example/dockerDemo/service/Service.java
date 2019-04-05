@@ -1,5 +1,16 @@
 package docker.com.example.dockerDemo.service;
 
+import docker.com.example.dockerDemo.entity.SimpleTable;
+
+import java.util.List;
+import java.util.Optional;
+
 public interface Service {
-//    SimpleTable find();
+    void save(SimpleTable newRecord);
+
+    Optional<SimpleTable> findById(Integer id);
+
+    void deleteById(Integer id);
+
+    List<SimpleTable> findAll();
 }
