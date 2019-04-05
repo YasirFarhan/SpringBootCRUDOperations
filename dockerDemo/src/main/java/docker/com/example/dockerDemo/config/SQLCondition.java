@@ -8,6 +8,6 @@ public class SQLCondition implements Condition {
 
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
-        return "donotallow".equalsIgnoreCase(context.getEnvironment().getProperty("use.cql"));
+        return "sql".equalsIgnoreCase(context.getEnvironment().getProperty("use.dabase"));
     }
 }

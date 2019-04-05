@@ -8,6 +8,6 @@ public class CqlCondition implements Condition {
 
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
-        return "allow".equalsIgnoreCase(context.getEnvironment().getProperty("use.cql"));
+        return "cql".equalsIgnoreCase(context.getEnvironment().getProperty("use.dabase"));
     }
 }
