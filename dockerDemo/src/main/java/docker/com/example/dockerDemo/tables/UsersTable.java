@@ -1,6 +1,6 @@
-package docker.com.example.dockerDemo.entity;
+package docker.com.example.dockerDemo.tables;
 
-import docker.com.example.dockerDemo.constant.SimpleTableConstants;
+import docker.com.example.dockerDemo.constant.UserTableConstants;
 import lombok.Data;
 import lombok.Setter;
 import org.springframework.data.cassandra.core.mapping.Column;
@@ -9,14 +9,14 @@ import org.springframework.data.cassandra.core.mapping.Table;
 
 @Data
 @Setter
-@Table(SimpleTableConstants.TABLE_NAME)
-public class SimpleTable {
+@Table(UserTableConstants.TABLE_NAME)
+public class UsersTable {
 
     @PrimaryKey
-    @Column(SimpleTableConstants.Columns.ID)
+    @Column(UserTableConstants.Columns.ID)
     private Integer id;
 
-    @Column(SimpleTableConstants.Columns.NAME)
+    @Column(UserTableConstants.Columns.NAME)
     private String name;
 
     public void setId(Integer id) {

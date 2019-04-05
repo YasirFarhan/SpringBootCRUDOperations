@@ -1,45 +1,45 @@
 package docker.com.example.dockerDemo.controller;
 
-import docker.com.example.dockerDemo.entity.SimpleTable;
-import docker.com.example.dockerDemo.service.Service;
+import docker.com.example.dockerDemo.factory.DataBaseFactory;
+import docker.com.example.dockerDemo.tables.UsersTable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
 @RestController
-public class DemoController {
+public class UserController {
     @Autowired
-    Service service;
+    DataBaseFactory dataBaseFactory;
 
     @GetMapping(path = "/findAll")
     @ResponseBody
-    public Iterable<SimpleTable> findAll() {
-        Iterable<SimpleTable> list = service.findAllRecords();
+    public Iterable<UsersTable> findAll() {
+        Iterable<UsersTable> list = dataBaseFactory.findAllRecords();
         return list;
     }
 
     @GetMapping(path = "/find/{id}")
     @ResponseBody
-    public Optional<SimpleTable> findById(@PathVariable("id") Integer id) {
-        return service.findRecordById(id);
+    public Optional<UsersTable> findById(@PathVariable("id") Integer id) {
+        return dataBaseFactory.findRecordById(id);
     }
 
 
     @PostMapping(path = "/save", headers = "Accept=application/json", produces = "application/json")
-    public void save(@RequestBody SimpleTable newRecord) {
-        service.saveRecord(newRecord);
+    public void save(@RequestBody UsersTable newRecord) {
+        dataBaseFactory.saveRecord(newRecord);
     }
 
     @PutMapping(path = "/update", headers = "Accept=application/json", produces = "application/json")
-    public void update(@RequestBody SimpleTable newRecord) {
-        service.saveRecord(newRecord);
+    public void update(@RequestBody UsersTable newRecord) {
+        dataBaseFactory.saveRecord(newRecord);
     }
 
     @DeleteMapping(path = "/delete/{id}")
     @ResponseBody
     public void delete(@PathVariable("id") Integer id) {
-        service.deleteRecordById(id);
+        dataBaseFactory.deleteRecordById(id);
     }
 }
 

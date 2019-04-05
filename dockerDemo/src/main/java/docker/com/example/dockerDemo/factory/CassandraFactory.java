@@ -1,25 +1,25 @@
-package docker.com.example.dockerDemo.service;
+package docker.com.example.dockerDemo.factory;
 
-import docker.com.example.dockerDemo.dao.Dao;
-import docker.com.example.dockerDemo.entity.SimpleTable;
+import docker.com.example.dockerDemo.Persistance.CassandraDAO;
+import docker.com.example.dockerDemo.tables.UsersTable;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Optional;
 
-//@org.springframework.stereotype.Service
-public class ServiceImplCQl implements Service {
+//@org.springframework.stereotype.DataBaseFactory
+public class CassandraFactory implements DataBaseFactory {
 
     @Autowired
-    private Dao dao;
+    private CassandraDAO dao;
 
     @Override
-    public void saveRecord(SimpleTable newRecord) {
+    public void saveRecord(UsersTable newRecord) {
         dao.save(newRecord);
     }
 
 
     @Override
-    public Optional<SimpleTable> findRecordById(Integer id) {
+    public Optional<UsersTable> findRecordById(Integer id) {
         return dao.findById(id);
     }
 
@@ -29,7 +29,7 @@ public class ServiceImplCQl implements Service {
     }
 
     @Override
-    public Iterable<SimpleTable> findAllRecords() {
+    public Iterable<UsersTable> findAllRecords() {
 
         System.out.println("****************************************************************" +
                 "USING    NON SQL IMPLIMENTATION");

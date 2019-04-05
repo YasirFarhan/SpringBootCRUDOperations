@@ -1,6 +1,6 @@
 package docker.com.example.dockerDemo.constant;
 
-public interface SimpleTableConstants {
+public interface UserTableConstants {
     String TABLE_NAME="simpletable";
 
     interface Columns {

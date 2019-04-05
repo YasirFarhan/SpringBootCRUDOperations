@@ -1,4 +1,4 @@
-package docker.com.example.dockerDemo.config;
+package docker.com.example.dockerDemo.factory;
 
 import org.springframework.context.annotation.Condition;
 import org.springframework.context.annotation.ConditionContext;
@@ -8,6 +8,6 @@ public class SQLCondition implements Condition {
 
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
-        return "sql".equalsIgnoreCase(context.getEnvironment().getProperty("use.dabase"));
+        return "SQL".equalsIgnoreCase(context.getEnvironment().getProperty("use.dabase"));
     }
 }
