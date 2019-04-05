@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.Optional;
 
 public interface Service {
-    void save(SimpleTable newRecord);
+    void saveRecord(SimpleTable newRecord);
 
-    Optional<SimpleTable> findById(Integer id);
+    Optional<SimpleTable> findRecordById(Integer id);
 
-    void deleteById(Integer id);
+    void deleteRecordById(Integer id);
 
-    Iterable <SimpleTable> findAll();
+    Iterable <SimpleTable> findAllRecords();
 }

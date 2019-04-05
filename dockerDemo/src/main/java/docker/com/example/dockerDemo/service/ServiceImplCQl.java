@@ -6,30 +6,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Optional;
 
-@org.springframework.stereotype.Service
-public class ServiceImpl implements Service {
+//@org.springframework.stereotype.Service
+public class ServiceImplCQl implements Service {
+
     @Autowired
     private Dao dao;
 
-
     @Override
-    public void save(SimpleTable newRecord) {
-        dao.save(newRecord);
+    public void saveRecord(SimpleTable newRecord) {
         dao.save(newRecord);
     }
 
+
     @Override
-    public Optional<SimpleTable> findById(Integer id) {
+    public Optional<SimpleTable> findRecordById(Integer id) {
         return dao.findById(id);
     }
 
     @Override
-    public void deleteById(Integer id) {
+    public void deleteRecordById(Integer id) {
         dao.deleteById(id);
     }
 
     @Override
-    public Iterable<SimpleTable> findAll() {
+    public Iterable<SimpleTable> findAllRecords() {
+
+        System.out.println("****************************************************************" +
+                "USING    NON SQL IMPLIMENTATION");
         return dao.findAll();
     }
 }
