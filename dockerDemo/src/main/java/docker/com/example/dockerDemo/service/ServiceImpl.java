@@ -4,7 +4,6 @@ import docker.com.example.dockerDemo.dao.Dao;
 import docker.com.example.dockerDemo.entity.SimpleTable;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.List;
 import java.util.Optional;
 
 @org.springframework.stereotype.Service
@@ -12,12 +11,10 @@ public class ServiceImpl implements Service {
     @Autowired
     private Dao dao;
 
-    public List<SimpleTable> find() {
-        return dao.findAll();
-    }
 
     @Override
     public void save(SimpleTable newRecord) {
+        dao.save(newRecord);
         dao.save(newRecord);
     }
 
@@ -32,7 +29,7 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public List<SimpleTable> findAll() {
+    public Iterable<SimpleTable> findAll() {
         return dao.findAll();
     }
 }

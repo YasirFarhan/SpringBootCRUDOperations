@@ -13,7 +13,7 @@ public class SimpleTable {
 
     @PrimaryKey
     @Column(SimpleTableConstants.Columns.ID)
-    private String id;
+    private Integer id;
 
     @Column(SimpleTableConstants.Columns.NAME)
     private String name;

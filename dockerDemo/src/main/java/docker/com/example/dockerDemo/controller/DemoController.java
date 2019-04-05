@@ -11,13 +11,12 @@ import java.util.Optional;
 @RestController
 public class DemoController {
     @Autowired
-//    Dao service;
-            Service service;
+    Service service;
 
     @GetMapping(path = "/findAll")
     @ResponseBody
-    public List<SimpleTable> findAll() {
-        List<SimpleTable> list = service.findAll();
+    public Iterable<SimpleTable> findAll() {
+        Iterable <SimpleTable> list = service.findAll();
         return list;
     }
 

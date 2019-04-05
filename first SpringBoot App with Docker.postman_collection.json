@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "62bcf998-7c69-4b6b-b3bc-b9df2f0711cf",
+		"name": "first SpringBoot App with Docker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "findAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/findAll",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"findAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/find/1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"find",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 2,\n    \"name\": \"User From Postman\"\n}"
+				},
+				"url": {
+					"raw": "{{host}}/save",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 2,\n    \"name\": \"From Postman\"\n}"
+				},
+				"url": {
+					"raw": "{{host}}/update",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/delete/2",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"delete",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "saveAll",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"id\": 2,\n        \"name\": \"First User From Postman\"\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Ann\"\n    },\n    {\n        \"id\": 7,\n        \"name\": \"User From Postmanx\"\n    },\n    {\n        \"id\": 9,\n        \"name\": \"TestName\"\n    },\n    {\n        \"id\": 10,\n        \"name\": \"Ben\"\n    }\n]"
+				},
+				"url": {
+					"raw": "{{host}}/saveAll",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"saveAll"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

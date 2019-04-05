@@ -12,5 +12,5 @@ public interface Service {
 
     void deleteById(Integer id);
 
-    List<SimpleTable> findAll();
+    Iterable <SimpleTable> findAll();
 }
