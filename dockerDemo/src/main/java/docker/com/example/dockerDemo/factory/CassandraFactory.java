@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Optional;
 
-//@org.springframework.stereotype.DataBaseFactory
 public class CassandraFactory implements DataBaseFactory {
 
     @Autowired
@@ -33,6 +32,8 @@ public class CassandraFactory implements DataBaseFactory {
 
         System.out.println("****************************************************************" +
                 "USING    NON SQL IMPLIMENTATION");
+
+        Iterable<CassandraUsersTable> listOfUsers = dao.findAll();
         return dao.findAll();
     }
 }

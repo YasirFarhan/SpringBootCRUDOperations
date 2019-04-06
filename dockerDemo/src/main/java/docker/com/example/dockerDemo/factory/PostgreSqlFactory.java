@@ -31,7 +31,7 @@ public class PostgreSqlFactory implements DataBaseFactory {
 
         System.out.println("****************************************************************" +
                 "USING    SQL IMPLIMENTATION");
-
+        Iterable<CassandraUsersTable> listOfUsers = dao.findAll();
         return dao.findAll();
     }
 }
