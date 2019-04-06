@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Optional;
 
-public class SQLFactory implements DataBaseFactory {
+public class PostgreSqlFactory implements DataBaseFactory {
     @Autowired
     UserPostgresRepository dao;
 

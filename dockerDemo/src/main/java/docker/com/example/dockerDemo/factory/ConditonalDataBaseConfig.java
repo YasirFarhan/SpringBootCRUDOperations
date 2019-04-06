@@ -16,7 +16,7 @@ public class ConditonalDataBaseConfig {
     @Bean
     @Conditional(SQLCondition.class)
     DataBaseFactory ServiceSQL() {
-        return new SQLFactory();
+        return new PostgreSqlFactory();
     }
 
 }
