@@ -10,12 +10,12 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Data
-@Entity
+//@Entity
 @Table(UserTableConstants.TABLE_NAME)
 public class CassandraUsersTable {
 
     @PrimaryKey
-    @Id
+//    @Id
     @Column(UserTableConstants.Columns.ID)
     private Long id;
 

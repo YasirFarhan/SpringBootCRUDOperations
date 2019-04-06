@@ -2,6 +2,7 @@ package docker.com.example.dockerDemo.factory;
 
 import docker.com.example.dockerDemo.Persistance.UserPostgresRepository;
 import docker.com.example.dockerDemo.tables.CassandraUsersTable;
+import docker.com.example.dockerDemo.tables.PostgresUserTable;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Optional;
@@ -12,12 +13,13 @@ public class PostgreSqlFactory implements DataBaseFactory {
 
     @Override
     public void saveRecord(CassandraUsersTable newRecord) {
-        dao.save(newRecord);
+//        dao.save(newRecord);
     }
 
     @Override
     public Optional<CassandraUsersTable> findRecordById(Integer id) {
-        return dao.findById(Long.parseLong(id.toString()));
+//        return dao.findById(Long.parseLong(id.toString()));
+        return null;
     }
 
     @Override
@@ -31,7 +33,9 @@ public class PostgreSqlFactory implements DataBaseFactory {
 
         System.out.println("****************************************************************" +
                 "USING    SQL IMPLIMENTATION");
-        Iterable<CassandraUsersTable> listOfUsers = dao.findAll();
-        return dao.findAll();
+        Iterable<PostgresUserTable> listOfUsers = dao.findAll();
+
+//        return dao.findAll();
+        return null;
     }
 }

@@ -19,7 +19,7 @@ public class PostgresUserTable implements Serializable {
     @PrimaryKey
 //    @Column(UserTableConstants.Columns.ID)
     @Id
-    private Integer id;
+    private Long id;
 
     @Column(UserTableConstants.Columns.NAME)
     private String name;
