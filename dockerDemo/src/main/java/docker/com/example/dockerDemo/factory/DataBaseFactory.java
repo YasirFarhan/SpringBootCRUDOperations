@@ -1,15 +1,15 @@
 package docker.com.example.dockerDemo.factory;
 
-import docker.com.example.dockerDemo.tables.UsersTable;
+import docker.com.example.dockerDemo.tables.CassandraUsersTable;
 
 import java.util.Optional;
 
 public interface DataBaseFactory {
-    void saveRecord(UsersTable newRecord);
+    void saveRecord(CassandraUsersTable newRecord);
 
-    Optional<UsersTable> findRecordById(Integer id);
+    Optional<CassandraUsersTable> findRecordById(Integer id);
 
     void deleteRecordById(Integer id);
 
-    Iterable <UsersTable> findAllRecords();
+    Iterable <CassandraUsersTable> findAllRecords();
 }

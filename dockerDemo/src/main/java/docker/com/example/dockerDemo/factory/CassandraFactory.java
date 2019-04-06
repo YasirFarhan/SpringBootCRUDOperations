@@ -1,7 +1,7 @@
 package docker.com.example.dockerDemo.factory;
 
-import docker.com.example.dockerDemo.Persistance.CassandraDAO;
-import docker.com.example.dockerDemo.tables.UsersTable;
+import docker.com.example.dockerDemo.Persistance.UserCassandraRepository;
+import docker.com.example.dockerDemo.tables.CassandraUsersTable;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Optional;
@@ -10,16 +10,16 @@ import java.util.Optional;
 public class CassandraFactory implements DataBaseFactory {
 
     @Autowired
-    private CassandraDAO dao;
+    private UserCassandraRepository dao;
 
     @Override
-    public void saveRecord(UsersTable newRecord) {
+    public void saveRecord(CassandraUsersTable newRecord) {
         dao.save(newRecord);
     }
 
 
     @Override
-    public Optional<UsersTable> findRecordById(Integer id) {
+    public Optional<CassandraUsersTable> findRecordById(Integer id) {
         return dao.findById(id);
     }
 
@@ -29,7 +29,7 @@ public class CassandraFactory implements DataBaseFactory {
     }
 
     @Override
-    public Iterable<UsersTable> findAllRecords() {
+    public Iterable<CassandraUsersTable> findAllRecords() {
 
         System.out.println("****************************************************************" +
                 "USING    NON SQL IMPLIMENTATION");

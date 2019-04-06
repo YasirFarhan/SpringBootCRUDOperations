@@ -1,32 +1,32 @@
 package docker.com.example.dockerDemo.factory;
 
-import docker.com.example.dockerDemo.Persistance.CassandraDAO;
-import docker.com.example.dockerDemo.tables.UsersTable;
+import docker.com.example.dockerDemo.Persistance.UserPostgresRepository;
+import docker.com.example.dockerDemo.tables.CassandraUsersTable;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Optional;
 
 public class SQLFactory implements DataBaseFactory {
     @Autowired
-    CassandraDAO dao;
+    UserPostgresRepository dao;
 
     @Override
-    public void saveRecord(UsersTable newRecord) {
+    public void saveRecord(CassandraUsersTable newRecord) {
         dao.save(newRecord);
     }
 
     @Override
-    public Optional<UsersTable> findRecordById(Integer id) {
-        return dao.findById(id);
+    public Optional<CassandraUsersTable> findRecordById(Integer id) {
+        return dao.findById(Long.parseLong(id.toString()));
     }
 
     @Override
     public void deleteRecordById(Integer id) {
-        dao.deleteById(id);
+        dao.deleteById(Long.parseLong(id.toString()));
     }
 
     @Override
-    public Iterable<UsersTable> findAllRecords() {
+    public Iterable<CassandraUsersTable> findAllRecords() {
 
 
         System.out.println("****************************************************************" +
