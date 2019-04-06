@@ -2,16 +2,5 @@ spring:
   data:
     cassandra:
       contactpoints: 127.0.0.1:9042
-      spring:
-        datasource:
-          url:
-#      keyspace-name: pluralsight
+      keyspace-name: pluralsight
 
-
-#app:
-#  dataSource:
-#    postgres:
-#      port: 9041
-#      host: localhost
-#      databaseName: pluralsight
-#      jdbc-url: jdbc:postgresql://$(app.dataSource.postgres.host}:${app.dataSource.postgres.port}/${app.dataSource.postgres.databaseName}
