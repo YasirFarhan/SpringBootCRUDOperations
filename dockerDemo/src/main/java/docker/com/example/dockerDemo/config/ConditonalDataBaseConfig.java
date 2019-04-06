@@ -10,11 +10,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ConditonalDataBaseConfig {
 
-//    @Bean
-//    @Conditional(SQLCondition.class)
-//    DataBaseFactory ServiceSQL() {
-//        return new PostgreSqlFactory();
-//    }
+    @Bean
+    @Conditional(SQLCondition.class)
+    DataBaseFactory ServiceSQL() {
+        return new PostgreSqlFactory();
+    }
 
     @Bean
     @Conditional(CassandraCondition.class)
