@@ -36,7 +36,8 @@ public class CassandraFactory implements UsersDAO {
 
     @Override
     public List<UserModel> findAllRecords() {
-        System.out.println("**************************************************************** USING    Cassandra   IMPLIMENTATION");
+
+        System.out.println("**************************************************************** USING    Cassandra   IMPLIMENTATION   ****************************************************************");
         List userList = new ArrayList<UserModel>();
         Iterable<CassandraUsersTable> listOfUsers = dao.findAll();
         listOfUsers.forEach(userList::add);

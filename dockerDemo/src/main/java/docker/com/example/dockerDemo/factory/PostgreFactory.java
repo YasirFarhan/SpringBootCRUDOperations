@@ -36,8 +36,7 @@ public class PostgreFactory implements UsersDAO {
 
     @Override
     public List<UserModel> findAllRecords() {
-        System.out.println("****************************************************************" +
-                "USING    POSTGRESQL   IMPLIMENTATION");
+        System.out.println("**************************************************************** USING    POSTGRESQL   IMPLIMENTATION   ****************************************************************");
 
         List userList = new ArrayList<UserModel>();
         Iterable<PostgresUsersTable> listOfUsers = dao.findAll();
