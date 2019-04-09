@@ -2,7 +2,7 @@ package docker.com.example.dockerDemo.model;
 
 
 import docker.com.example.dockerDemo.tables.CassandraUsersTable;
-import docker.com.example.dockerDemo.tables.PostgresUserTable;
+import docker.com.example.dockerDemo.tables.PostgresUsersTable;
 
 import java.util.Optional;
 
@@ -16,26 +16,11 @@ public class UserModel {
         this.name = usersTable.get().getName();
     }
 
-    public void convertFromPostgresTable(Optional<PostgresUserTable> usersTable) {
+    public void convertFromPostgresTable(Optional<PostgresUsersTable> usersTable) {
         this.id = usersTable.get().getId();
         this.name = usersTable.get().getName();
     }
 
-
-   /* public UserModel convertFromCassandraTable(CassandraUsersTable usersTable) {
-        UserModel userModel = new UserModel();
-        userModel.setId(usersTable.getId());
-        userModel.setName(usersTable.getName());
-        return userModel;
-    }
-
-    public UserModel convertFromPostgresTable(PostgresUserTable usersTable) {
-        UserModel userModel = new UserModel();
-        userModel.setId(usersTable.getId());
-        userModel.setName(usersTable.getName());
-        return userModel;
-    }
-*/
 
     public Long getId() {
         return id;

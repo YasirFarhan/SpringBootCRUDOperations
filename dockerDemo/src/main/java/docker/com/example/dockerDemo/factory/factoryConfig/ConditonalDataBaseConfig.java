@@ -1,8 +1,8 @@
 package docker.com.example.dockerDemo.factory.factoryConfig;
 
 import docker.com.example.dockerDemo.factory.CassandraFactory;
-import docker.com.example.dockerDemo.factory.DataBaseFactory;
-import docker.com.example.dockerDemo.factory.PostgreSqlFactory;
+import docker.com.example.dockerDemo.factory.UsersDAO;
+import docker.com.example.dockerDemo.factory.PostgreFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
@@ -12,13 +12,13 @@ public class ConditonalDataBaseConfig {
 
     @Bean
     @Conditional(SQLCondition.class)
-    DataBaseFactory ServiceSQL() {
-        return new PostgreSqlFactory();
+    UsersDAO ServiceSQL() {
+        return new PostgreFactory();
     }
 
     @Bean
     @Conditional(CassandraCondition.class)
-    DataBaseFactory ServiceCQL() {
+    UsersDAO ServiceCQL() {
         return new CassandraFactory();
     }
 

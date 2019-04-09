@@ -5,12 +5,12 @@ import docker.com.example.dockerDemo.tables.CassandraUsersTable;
 
 import java.util.List;
 
-public interface DataBaseFactory {
+public interface UsersDAO {
     void saveRecord(UserModel newRecord);
 
     UserModel findRecordById(Long id);
 
-    void deleteRecordById(Integer id);
+    void deleteRecordById(Long id);
 
     List<UserModel> findAllRecords();
 }

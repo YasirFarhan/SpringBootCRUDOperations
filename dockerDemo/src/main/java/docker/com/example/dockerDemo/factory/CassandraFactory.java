@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class CassandraFactory implements DataBaseFactory {
+public class CassandraFactory implements UsersDAO {
 
     @Autowired
     private UserCassandraRepository dao;
@@ -30,19 +30,16 @@ public class CassandraFactory implements DataBaseFactory {
     }
 
     @Override
-    public void deleteRecordById(Integer id) {
-//        dao.deleteById(id);
+    public void deleteRecordById(Long id) {
+        dao.deleteById(id);
     }
 
     @Override
     public List<UserModel> findAllRecords() {
-        System.out.println("****************************************************************" +
-                "USING    Cassandra   IMPLIMENTATION");
-
+        System.out.println("**************************************************************** USING    Cassandra   IMPLIMENTATION");
         List userList = new ArrayList<UserModel>();
         Iterable<CassandraUsersTable> listOfUsers = dao.findAll();
         listOfUsers.forEach(userList::add);
-
         return userList;
     }
 }

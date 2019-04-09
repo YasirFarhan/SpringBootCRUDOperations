@@ -15,7 +15,7 @@ import java.io.Serializable;
 @Data
 @Entity
 @Table(name = UserTableConstants.TABLE_NAME)
-public class PostgresUserTable implements Serializable {
+public class PostgresUsersTable implements Serializable {
 
     @PrimaryKey
     @Id
