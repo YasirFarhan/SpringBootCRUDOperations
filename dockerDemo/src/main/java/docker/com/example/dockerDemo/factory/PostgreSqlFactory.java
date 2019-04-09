@@ -1,6 +1,7 @@
 package docker.com.example.dockerDemo.factory;
 
 import docker.com.example.dockerDemo.Persistance.UserPostgresRepository;
+import docker.com.example.dockerDemo.model.UserModel;
 import docker.com.example.dockerDemo.tables.CassandraUsersTable;
 import docker.com.example.dockerDemo.tables.PostgresUserTable;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +18,13 @@ public class PostgreSqlFactory implements DataBaseFactory {
     }
 
     @Override
-    public Optional<CassandraUsersTable> findRecordById(Integer id) {
-//        return dao.findById(Long.parseLong(id.toString()));
-        return null;
+    public UserModel findRecordById(Long id) {
+        UserModel userModel = new UserModel();
+        Optional userTable = dao.findById(id);
+        userModel.convertFromPostgresTable(userTable);
+        return userModel;
     }
+
 
     @Override
     public void deleteRecordById(Integer id) {

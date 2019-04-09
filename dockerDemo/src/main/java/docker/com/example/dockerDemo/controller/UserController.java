@@ -1,11 +1,10 @@
 package docker.com.example.dockerDemo.controller;
 
 import docker.com.example.dockerDemo.factory.DataBaseFactory;
+import docker.com.example.dockerDemo.model.UserModel;
 import docker.com.example.dockerDemo.tables.CassandraUsersTable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
 
 @RestController
 public class UserController {
@@ -21,7 +20,7 @@ public class UserController {
 
     @GetMapping(path = "/find/{id}")
     @ResponseBody
-    public Optional<CassandraUsersTable> findById(@PathVariable("id") Integer id) {
+    public UserModel findById(@PathVariable("id") Long id) {
         return dataBaseFactory.findRecordById(id);
     }
 

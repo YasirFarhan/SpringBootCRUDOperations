@@ -1,4 +1,4 @@
-package docker.com.example.dockerDemo.config;
+package docker.com.example.dockerDemo.factory.factoryConfig;
 
 import docker.com.example.dockerDemo.factory.CassandraFactory;
 import docker.com.example.dockerDemo.factory.DataBaseFactory;

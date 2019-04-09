@@ -6,22 +6,32 @@ import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
 @Data
-//@Entity
 @Table(UserTableConstants.TABLE_NAME)
 public class CassandraUsersTable {
 
     @PrimaryKey
-//    @Id
     @Column(UserTableConstants.Columns.ID)
     private Long id;
 
     @Column(UserTableConstants.Columns.NAME)
     private String name;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
 
 
