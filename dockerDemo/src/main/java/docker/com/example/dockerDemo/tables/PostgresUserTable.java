@@ -2,6 +2,7 @@ package docker.com.example.dockerDemo.tables;
 
 
 import docker.com.example.dockerDemo.constant.UserTableConstants;
+import docker.com.example.dockerDemo.model.UserModel;
 import lombok.Data;
 import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
@@ -37,5 +38,9 @@ public class PostgresUserTable implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+    public void convertFromUserModelToPostgresTable(UserModel userModel) {
+        this.id = userModel.getId();
+        this.name = userModel.getName();
     }
 }

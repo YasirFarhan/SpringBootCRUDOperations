@@ -2,9 +2,10 @@ package docker.com.example.dockerDemo.controller;
 
 import docker.com.example.dockerDemo.factory.DataBaseFactory;
 import docker.com.example.dockerDemo.model.UserModel;
-import docker.com.example.dockerDemo.tables.CassandraUsersTable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class UserController {
@@ -13,9 +14,8 @@ public class UserController {
 
     @GetMapping(path = "/findAll")
     @ResponseBody
-    public Iterable<CassandraUsersTable> findAll() {
-        Iterable<CassandraUsersTable> list = dataBaseFactory.findAllRecords();
-        return list;
+    public List<UserModel> findAll() {
+        return dataBaseFactory.findAllRecords();
     }
 
     @GetMapping(path = "/find/{id}")
@@ -26,12 +26,12 @@ public class UserController {
 
 
     @PostMapping(path = "/save", headers = "Accept=application/json", produces = "application/json")
-    public void save(@RequestBody CassandraUsersTable newRecord) {
+    public void save(@RequestBody UserModel newRecord) {
         dataBaseFactory.saveRecord(newRecord);
     }
 
     @PutMapping(path = "/update", headers = "Accept=application/json", produces = "application/json")
-    public void update(@RequestBody CassandraUsersTable newRecord) {
+    public void update(@RequestBody UserModel newRecord) {
         dataBaseFactory.saveRecord(newRecord);
     }
 

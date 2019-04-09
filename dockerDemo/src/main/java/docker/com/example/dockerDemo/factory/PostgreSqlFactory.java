@@ -2,10 +2,11 @@ package docker.com.example.dockerDemo.factory;
 
 import docker.com.example.dockerDemo.Persistance.UserPostgresRepository;
 import docker.com.example.dockerDemo.model.UserModel;
-import docker.com.example.dockerDemo.tables.CassandraUsersTable;
 import docker.com.example.dockerDemo.tables.PostgresUserTable;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class PostgreSqlFactory implements DataBaseFactory {
@@ -13,8 +14,10 @@ public class PostgreSqlFactory implements DataBaseFactory {
     UserPostgresRepository dao;
 
     @Override
-    public void saveRecord(CassandraUsersTable newRecord) {
-//        dao.save(newRecord);
+    public void saveRecord(UserModel newRecord) {
+        PostgresUserTable postgresUserTable = new PostgresUserTable();
+        postgresUserTable.convertFromUserModelToPostgresTable(newRecord);
+        dao.save(postgresUserTable);
     }
 
     @Override
@@ -32,14 +35,13 @@ public class PostgreSqlFactory implements DataBaseFactory {
     }
 
     @Override
-    public Iterable<CassandraUsersTable> findAllRecords() {
-
-
+    public List<UserModel> findAllRecords() {
         System.out.println("****************************************************************" +
-                "USING    SQL IMPLIMENTATION");
-        Iterable<PostgresUserTable> listOfUsers = dao.findAll();
+                "USING    POSTGRESQL   IMPLIMENTATION");
 
-//        return dao.findAll();
-        return null;
+        List userList = new ArrayList<UserModel>();
+        Iterable<PostgresUserTable> listOfUsers = dao.findAll();
+        listOfUsers.forEach(userList::add);
+        return userList;
     }
 }

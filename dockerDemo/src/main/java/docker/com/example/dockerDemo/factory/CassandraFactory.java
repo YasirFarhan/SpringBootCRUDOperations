@@ -5,6 +5,8 @@ import docker.com.example.dockerDemo.model.UserModel;
 import docker.com.example.dockerDemo.tables.CassandraUsersTable;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class CassandraFactory implements DataBaseFactory {
@@ -13,8 +15,10 @@ public class CassandraFactory implements DataBaseFactory {
     private UserCassandraRepository dao;
 
     @Override
-    public void saveRecord(CassandraUsersTable newRecord) {
-        dao.save(newRecord);
+    public void saveRecord(UserModel newRecord) {
+        CassandraUsersTable cassandraUsersTable = new CassandraUsersTable();
+        cassandraUsersTable.convertFromUserModelToCassandraTable(newRecord);
+        dao.save(cassandraUsersTable);
     }
 
     @Override
@@ -31,12 +35,14 @@ public class CassandraFactory implements DataBaseFactory {
     }
 
     @Override
-    public Iterable<CassandraUsersTable> findAllRecords() {
-
+    public List<UserModel> findAllRecords() {
         System.out.println("****************************************************************" +
-                "USING    NON SQL IMPLIMENTATION");
+                "USING    Cassandra   IMPLIMENTATION");
 
+        List userList = new ArrayList<UserModel>();
         Iterable<CassandraUsersTable> listOfUsers = dao.findAll();
-        return dao.findAll();
+        listOfUsers.forEach(userList::add);
+
+        return userList;
     }
 }
