@@ -1,4 +1,4 @@
-package docker.com.example.dockerDemo.controller;
+package docker.com.example.dockerDemo;
 
 import docker.com.example.dockerDemo.factory.UsersDAO;
 import docker.com.example.dockerDemo.model.UserModel;
